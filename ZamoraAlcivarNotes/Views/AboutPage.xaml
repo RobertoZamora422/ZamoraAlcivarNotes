@@ -3,21 +3,43 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:models="clr-namespace:ZamoraAlcivarNotes.Models"
              x:Class="ZamoraAlcivarNotes.Views.AboutPage"
-             x:DataType="models:About">
+             x:DataType="models:About"
+             Title="About">
+
     <ContentPage.BindingContext>
         <models:About />
     </ContentPage.BindingContext>
-    <VerticalStackLayout Spacing="10" Margin="10">
-        <HorizontalStackLayout Spacing="10">
-            <Image Source="dotnet_bot.png"
-                   SemanticProperties.Description="The dot net bot waving hello!"
-                   HeightRequest="64" />
-            <Label FontSize="22" FontAttributes="Bold" Text="{Binding Title}" VerticalOptions="End" />
-            <Label FontSize="22" Text="{Binding Version}" VerticalOptions="End" />
+
+    <VerticalStackLayout Spacing="20" Padding="20">
+        <HorizontalStackLayout Spacing="15" VerticalOptions="Center">
+            <Frame CornerRadius="50" 
+                   HeightRequest="100" 
+                   WidthRequest="100"
+                   Padding="0"
+                   IsClippedToBounds="True">
+                <Image Source="roberto.png"
+                       Aspect="AspectFill"
+                       HeightRequest="100"
+                       WidthRequest="100"/>
+            </Frame>
+
+            <VerticalStackLayout VerticalOptions="Center">
+                <Label Text="{Binding Author}"
+                       FontSize="20" 
+                       FontAttributes="Bold"/>
+                <Label Text="{Binding Version}" 
+                       FontSize="14" 
+                       TextColor="Gray"/>
+            </VerticalStackLayout>
         </HorizontalStackLayout>
 
-        <Label Text="{Binding Message}" />
-        <Button Text="Learn more..." Clicked="LearnMore_Clicked" />
-    </VerticalStackLayout>
+        <Label Text="{Binding Message}" 
+               FontSize="16" 
+               TextColor="AntiqueWhite"/>
 
+        <Button Text="Visitar perfil" 
+                Clicked="LearnMore_Clicked" 
+                HorizontalOptions="Center"
+                WidthRequest="150"/>
+    </VerticalStackLayout>
 </ContentPage>
